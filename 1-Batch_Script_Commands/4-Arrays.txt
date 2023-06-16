@@ -1,0 +1,97 @@
+1) Creating an Array
+set a[0]=1 -> An array is created by using the following set command.
+
+Example : 
+    @echo off 
+    set list=1 2 3 4 
+    (for %%a in (%list%) do ( 
+        echo %%a 
+    ))
+
+Output: 
+    1
+    2
+    3
+    4
+
+2) Accessing Arrays
+You can retrieve a value from the array by using subscript syntax, 
+passing the index of the value you want to retrieve within square brackets immediately after the name of the array.
+
+Example: 
+    @echo off
+    set a[0]=1 
+    set a[1]=2 
+    set a[2]=3 
+    echo The first element of the array is %a[0]% 
+    echo The second element of the array is %a[1]% 
+    echo The third element of the array is %a[2]%
+
+Output: 
+    The first element of the array is 1 
+    The second element of the array is 2 
+    The third element of the array is 3
+
+3)Modifying an Array
+To add an element to the end of the array, you can use the set element along with the last index of the array element.
+
+Example:
+    @echo off 
+    set a[0]=1  
+    set a[1]=2  
+    set a[2]=3 
+    Rem Adding an element at the end of an array 
+    Set a[3]=4 
+    echo The last element of the array is %a[3]%
+
+4)Iterating Over an Array
+Iterating over an array is achieved by using the ‘for’ loop and going through each element of the array. 
+The following example shows a simple way that an array can be implemented.
+
+Example:
+    @echo off 
+    setlocal enabledelayedexpansion 
+    set topic[0]=comments 
+    set topic[1]=variables 
+    set topic[2]=Arrays 
+    set topic[3]=Decision making 
+    set topic[4]=Time and date 
+    set topic[5]=Operators 
+
+    for /l %%n in (0,1,5) do ( 
+     echo !topic[%%n]! 
+    )
+
+5)Length of an Array
+The length of an array is done by iterating over the list of values in the array since there is no direct function to determine the number of elements in an array.
+
+Example:
+    @echo off 
+    set Arr[0]=1 
+    set Arr[1]=2 
+    set Arr[2]=3 
+    set Arr[3]=4 
+    set "x = 0" 
+    :SymLoop 
+
+    if defined Arr[%x%] ( 
+        call echo %%Arr[%x%]%% 
+        set /a "x+=1"
+        GOTO :SymLoop 
+    )
+    echo "The length of the array is" %x%
+
+6)Creating Structures in Arrays
+
+Example : 
+    @echo off 
+    set obj[0].Name=Joe 
+    set obj[0].ID=1 
+    set obj[1].Name=Mark 
+    set obj[1].ID=2 
+    set obj[2].Name=Mohan 
+    set obj[2].ID=3 
+    FOR /L %%i IN (0 1 2) DO  (
+        call echo Name = %%obj[%%i].Name%%
+        call echo Value = %%obj[%%i].ID%%
+    )
