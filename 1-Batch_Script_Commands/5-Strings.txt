@@ -1,0 +1,64 @@
+1)Creating String
+A string can be created in DOS in the following way.
+Example: 
+    @echo off 
+    :: This program just displays Hello World 
+    set message = Hello World 
+    echo %message%
+
+Output:
+    Hello World
+
+2)Empty String
+An empty string can be created in DOS Scripting by assigning it no value during it’s initialization as shown in the following example.
+Set a= -> Empty String
+[%a%]==[] -> Comparison with empty string
+
+Example: 
+    @echo off 
+    SET a= 
+    SET b=Hello 
+    if [%a%]==[] echo "String A is empty" 
+    if [%b%]==[] echo "String B is empty "
+
+3)String Interpolation
+String interpolation is a way to construct a new String value from a mix of constants, variables, literals, 
+and expressions by including their values inside a string literal.
+Example : 
+    @echo off 
+    SET a = Hello 
+    SET b = World 
+    SET /A d = 50 
+    SET c=%a% and %b% %d%
+    echo %c%
+
+Output :
+    Hello and World 50
+
+4)String Concatenation
+You can use the set operator to concatenate two strings or a string and a character, or two characters. 
+Following is a simple example which shows how to use string concatenation.
+
+Example :
+    @echo off 
+    SET a = Hello 
+    SET b = World 
+    SET c=%a% and %b% 
+    echo %c%
+
+5)String Length
+In DOS scripting, there is no length function defined for finding the length of a string.
+
+6)String ToInt
+A variable which has been set as string using the set variable can be converted to an integer using the /A switch which is using the set variable. 
+The following example shows how this can be accomplished.
+Example : 
+    @echo off
+    set var = 13145
+    set /A var=%var% + 5
+    echo %var%
+Output : 
+    13150
+
+7)
+

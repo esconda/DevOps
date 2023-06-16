@@ -1,0 +1,50 @@
+1)Command Line Arguments
+Batch scripts support the concept of command line arguments wherein arguments can be passed to the batch file when invoked. 
+The arguments can be called from the batch files through the variables %1, %2, %3, and so on.
+
+Example: 
+    @echo off 
+    echo %1 
+    echo %2 
+    echo %3
+
+Input Call: 
+    test.bat 1 2 3
+
+
+2) Set Command
+The other way in which variables can be initialized is via the ‘set’ command. Following is the syntax of the set command.
+
+Syntax : 
+   set /A variable-name=value
+
+where,
+* variable-name is the name of the variable you want to set.
+* value is the value which needs to be set against the variable.
+* /A – This switch is used if the value needs to be numeric in nature. 
+
+Example:
+    @echo off 
+    set message=Hello World 
+    echo %message%
+
+3)Working with Numeric Values
+In batch script, it is also possible to define a variable to hold a numeric value. This can be done by using the /A switch.
+
+Example : 
+    @echo off 
+    SET /A a = 5 
+    SET /A b = 10 
+    SET /A c = %a% + %b% 
+    echo %c%
+
+4)Local vs Global Variables
+Example : 
+    @echo off 
+    set globalvar = 5
+    SETLOCAL
+    set var = 13145
+    set /A var = %var% + 5
+    echo %var%
+    echo %globalvar%
+    ENDLOCAL
